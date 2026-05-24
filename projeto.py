@@ -50,14 +50,17 @@ while True:
                 maoJogador1.pop(0)
                 maoJogador1.append(cartaJ2)
                 maoJogador1.append(cartaJ1)
+                # maoJogador1.append(monteDeEspera[0:])
 
             elif valorEscolhidoComputador > valorEscolhidoJogador:
                 maoJogador2.pop(0)
                 maoJogador1.pop(0)
                 maoJogador2.append(cartaJ1)
                 maoJogador2.append(cartaJ2)
+                # maoJogador2.append(monteDeEspera[0:])
             
             else:
+                print("Ocorreu um empate nessa rodada...\nAs cartas topo dos dois jogadores serão adicionadas no monte de espera!")
                 maoJogador1.pop(0)
                 maoJogador2.pop(0)
                 monteDeEspera.append(cartaJ1)
