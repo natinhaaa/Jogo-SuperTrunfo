@@ -17,15 +17,17 @@ baralhos = [
 gabarito = ["Nome", "Velocidade (km/h)", "Tanque (litros)", "Ano (int)"]
 
 while True:
-    # monteDeEspera é reiniciado aqui,  para não persistir entre partidas outas possveis
+    # monteDeEspera é reiniciado aqui,  para não persistir entre partidas outras possveis
     monteDeEspera = []
 
     # Validação caso digite outro valor
-    opcaoJogo = ""
-    while opcaoJogo != "1" and opcaoJogo != "2" and opcaoJogo != "3":
+    while True:
         opcaoJogo = input("1 - Single Player\n2 - Multiplayer\n3 - Sair\nComo você deseja jogar? ")
-        if opcaoJogo != "1" and opcaoJogo != "2" and opcaoJogo != "3":
-            print("Entrada inválida! Por favor, digite apenas números (1, 2 ou 3).\n")
+    
+        if opcaoJogo in ["1", "2", "3"]:
+            break # A entrada é válida, então quebra o loop e segue o jogo!
+        # Se o código não parou no break acima, ele cai aqui no erro naturalmente
+        print("Entrada inválida! Por favor, digite apenas números (1, 2 ou 3).\n")
 
     random.shuffle(baralhos)
 
@@ -56,15 +58,17 @@ while True:
 
                 print("---ATENÇÃO! É A SUA VEZ DE ESCOLHER O ATRIBUTO---\n")
                 escolhaValida = False
-                while escolhaValida == False:
+                1
+                while True:
                     escolhaAtributoStr = input("Quem escolher um atributo de valor maior vence a rodada.\n1 - Velocidade\n2 - Tanque\n3 - Ano\nQual atributo você irá escolher? ")
-                    if escolhaAtributoStr == "1" or escolhaAtributoStr == "2" or escolhaAtributoStr == "3":
+                    
+                    if escolhaAtributoStr in ["1", "2", "3"]:
                         escolhaAtributoJogador = int(escolhaAtributoStr)
-                        escolhaValida = True # Sai do loop se o número for 1, 2 ou 3
-                    else:
-                        print("\nOpção inválida! Escolha 1, 2 ou 3.\n")
+                        break # sai do loop se for vdd
+                        
+                    print("\nOpção inválida! Escolha 1, 2 ou 3.\n")
             else:
-                # urno do computador: carta do Jogador 1 não é exibida (não é a vez dele)
+                # Turno do computador: carta do Jogador 1 não é exibida 
                 print("---ATENÇÃO! É A VEZ DO COMPUTADOR ESCOLHER O ATRIBUTO---\n")
                 escolhaAtributoJogador = random.randint(1, 3)
 
